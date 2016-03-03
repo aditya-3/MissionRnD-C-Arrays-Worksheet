@@ -42,16 +42,12 @@ void * sortedArrayPositionsChange(int *Arr, int len)
 				position2 = i + 1;
 				break;
 			}
-			else
-				continue;
-			
 		}
-		printf("%d%d",position1,position2);
+		
 		if (position1 != -1 && position2 != 1)
 		{
 			swap(Arr, position1, position2);
 		}
 
-		printf("%d%d",Arr[position1],Arr[position2]);
 	}
 }
