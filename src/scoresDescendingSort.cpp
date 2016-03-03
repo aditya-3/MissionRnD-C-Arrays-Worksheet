@@ -19,7 +19,31 @@ struct student {
 	char name[10];
 	int score;
 };
-
+void swap(struct student *students,int p1,int p2)
+{
+	int temp = students[p1].score;
+	students[p1].score = students[p2].score;
+	students[p2].score = temp;
+}
 void * scoresDescendingSort(struct student *students, int len) {
-	return NULL;
+	if (students == NULL || len <= 0)
+		return NULL;
+	else if (len == 2)
+	{
+		if (students[0].score < students[1].score)
+			swap(students,0, 1);
+	}
+	else
+	{
+		for (int i = 0; i < len - 1; i++) //bubble sort
+		{
+			for (int j = 0; j < len - i - 1; j++)
+			{
+				if (students[j].score < students[j + 1].score)
+					swap(students,j,j+1);
+			}
+		}
+
+	}
+
 }

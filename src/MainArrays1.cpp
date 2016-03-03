@@ -17,7 +17,6 @@ int main(){
 	printf("%d %d %d %d", newarray[0], newarray[1], newarray[2],newarray[3]);
 	*/
 
-	int Arr[5] = { 50, 20, 30, 40, 10 };
-	sortedArrayPositionsChange(Arr, 5);
+	
 	return 0;
 }
