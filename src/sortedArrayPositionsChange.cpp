@@ -12,8 +12,46 @@ NOTES:
 */
 
 #include <stdio.h>
+void swap(int *Arr, int p1, int p2)
+{
+	int temp = Arr[p1];
+	Arr[p1] = Arr[p2];
+	Arr[p2] = temp;
+}
 
 void * sortedArrayPositionsChange(int *Arr, int len)
 {
+	int i,position1=-1, position2=-1;
+	if (Arr==NULL || len<=0)
 	return NULL;
+	else
+	{
+		for ( i = 0; i < len-1; i++)
+		{
+			if (Arr[i] > Arr[i + 1])
+			{
+				position1 = i;
+				i++;
+				break;
+			}
+		}
+		for (; i < len - 1; i++)
+		{
+			if (Arr[i] > Arr[i + 1])
+			{
+				position2 = i + 1;
+				break;
+			}
+			else
+				continue;
+			
+		}
+		printf("%d%d",position1,position2);
+		if (position1 != -1 && position2 != 1)
+		{
+			swap(Arr, position1, position2);
+		}
+
+		printf("%d%d",Arr[position1],Arr[position2]);
+	}
 }
