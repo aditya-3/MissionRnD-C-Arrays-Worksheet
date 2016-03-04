@@ -21,6 +21,43 @@ struct student {
 	int score;
 };
 
+void swap(struct student *students, int p1, int p2)
+{
+	int temp = students[p1].score;
+	students[p1].score = students[p2].score;
+	students[p2].score = temp;
+}
+void sort(struct student *students, int len) {
+	for (int i = 0; i < len - 1; i++) //bubble sort
+	{
+		for (int j = 0; j < len - i - 1; j++)
+		{
+			if (students[j].score > students[j + 1].score)
+				swap(students, j, j + 1);
+		}
+	}
+}
 struct student ** topKStudents(struct student *students, int len, int K) {
-	return NULL;
+	struct student ** top_k ;
+	int j = 0;
+	
+	if (len <= 0 || K <= 0)
+		return NULL;
+	else
+		sort(students, len);
+
+	if (K == 1 ){
+		top_k = (struct student**)malloc(sizeof(struct student)*1);
+		top_k[j++] = &students[len - 1];
+     }
+	else 
+	{
+		if (K > len)
+			K = len;
+		 top_k = (struct student**)malloc(sizeof(struct student)*K);
+		 for (int i = len - K; i < len; i++)
+				top_k[j++] = &students[i];
+	}
+	return top_k;
+	
 }

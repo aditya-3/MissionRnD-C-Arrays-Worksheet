@@ -1,6 +1,9 @@
 #include "FunctionHeadersArrays1.h"
 #include <stdio.h>
-
+struct student {
+	char *name;
+	int score;
+};
 int main(){
 
 	//Test RemoveArraysDuplicates

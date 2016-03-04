@@ -21,6 +21,17 @@ void swap(int *a,int *b)
 	*a = *b;
 	*b = temp;
 }
+void sort(int *Arr,int len)
+{
+	for (int i = 0; i < len - 1; i++) //bubble sort
+	{
+		for (int j = 0; j < len - i - 1; j++)
+		{
+			if (Arr[j] > Arr[j + 1])
+				swap(&Arr[j], &Arr[j + 1]);
+		}
+	}
+}
 
 int removeArrayDuplicates(int *Arr, int len)
 {
@@ -47,14 +58,7 @@ int removeArrayDuplicates(int *Arr, int len)
 		}
 		if (sortFlag == 1)
 		{
-			for (int i = 0; i < len - 1; i++) //bubble sort
-			{
-				for (int j = 0; j < len - i - 1; j++)
-				{
-					if (Arr[j] > Arr[j + 1])
-						swap(&Arr[j], &Arr[j + 1]);
-				}
-			}
+			sort(Arr, len);
 			
 		}
 		
